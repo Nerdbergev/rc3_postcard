@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static',filename='rc3-nowhere.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static',filename='title-glitch.css') }}" >
+    <link href="{{ url_for('static',filename='main.css') }}" rel="stylesheet">
+    
+    <script src="{{ url_for('static',filename='js/jquery-1.10.2.min.js') }}" defer></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}" defer></script>
+</head>
+
+<body class="bg-1-1">
+    <div class="header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col logo-container">
+                    <img class="logo" src="{{ url_for('static',filename='assets/02a_Logo/02a_Logo_web_200px_still.png') }}">
+                </div>
+                <div class="col justify-content-center align-self-center title-container">
+                    <h1 class="glitch" data-text="Postcard Board">Postcard Board</h1>
+                    <h2>Send us postcards via c3post.de</h2>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for image in images %}
+            <div class="col-md-6">
+
+                <div class="card card-flip h-100">
+                    <div class="card-front">
+                        <img class="width-100-percentage"
+                            src="{{ image.src }}-upper.png?w={{ image.width }}&amp;h={{ image.height }}" />
+                    </div>
+                    <div class="card-back">
+                        <img class="width-100-percentage"
+                            src="{{ image.src }}-lower.png?w={{ image.width }}&amp;h={{ image.height }}" />
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p><a href="https://cert.ccc.de/impressum/">Impressum</a></p>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

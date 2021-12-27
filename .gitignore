@@ -1,0 +1,7 @@
+config.ini
+cards/*
+venv/
+.idea/
+__pycache__/
+.venv
+build/
